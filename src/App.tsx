@@ -1,16 +1,14 @@
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './App.css'
 import Home from './pages/Home';
+import English from './pages/English';
 import French from './pages/French';
+import Italian from './pages/Italian';
 import Slovak from './pages/Slovak';
-import Spanish from './pages/Spanish';
 import German from './pages/German';
-import About from './pages/About';
-import Contact from './pages/Contact';
-
+import Spanish from './pages/Spanish';
 
 import Navbar from './components/Navbar/Navbar';
-import { Contact } from 'lucide-react';
 
 
 export default function App() {
@@ -21,11 +19,12 @@ export default function App() {
       
       <Routes>
        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+       <Route path="/english" element={<English />} />
         <Route path="/french" element={<French />} />
+        <Route path="/italian" element={<Italian />} />
         <Route path="/slovak" element={<Slovak />} />
-        <Route path="/german" element={<div>German Page</div>} />
+        <Route path="/german" element={<German />} />
+        <Route path="/spanish" element={<Spanish />} />
       </Routes>
     </Router>
   );

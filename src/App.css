@@ -1,3 +1,12 @@
+/* What goes inside:
+
+Flex/Grid layouts: Centering your main content.
+
+Navbar/Footer styling: Rules that apply to the "frame" of your app.
+
+App-wide animations: Transitions that happen when switching between routes.
+ */
+
 /* Reset some default browser styles */
 * {
     margin: 0;
