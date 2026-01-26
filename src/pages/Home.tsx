@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <main>
         <p id="description-homepage">
-          This is a dictionary app. Please select a language
+          This is a dictionary app. Please select a language to learn
         </p>
         <div className="language-selection-container">
           <button
@@ -24,9 +24,15 @@ export default function Home() {
           </button>
           <button
             className="language-button"
-            onClick={() => navigate("/slovak")}
+            onClick={() => navigate("/spanish")}
           >
-            🇸🇰 Slovenský
+            🇪🇸 Spanish
+          </button>
+          <button
+            className="language-button"
+            onClick={() => navigate("/italian")}
+          >
+            🇮🇹 Italiano
           </button>
           <button
             className="language-button"
@@ -36,9 +42,15 @@ export default function Home() {
           </button>
           <button
             className="language-button"
-            onClick={() => navigate("/italian")}
+            onClick={() => navigate("/slovak")}
           >
-            🇮🇹 Italiano
+            🇸🇰 Slovenský
+          </button>
+          <button
+            className="language-button"
+            onClick={() => navigate("/ukrainian")}
+          >
+            🇺🇦 Українська
           </button>
         </div>
       </main>

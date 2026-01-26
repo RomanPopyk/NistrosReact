@@ -8,8 +8,9 @@ import Slovak from "./pages/Slovak";
 import German from "./pages/German";
 import Spanish from "./pages/Spanish";
 
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import Header from "./components/layout/Header/Header";
+import Footer from "./components/layout/Footer/Footer";
+import Ukrainian from "./pages/Ukrainian";
 
 export default function App() {
   return (
@@ -21,10 +22,11 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/english" element={<English />} />
         <Route path="/french" element={<French />} />
-        <Route path="/italian" element={<Italian />} />
-        <Route path="/slovak" element={<Slovak />} />
-        <Route path="/german" element={<German />} />
         <Route path="/spanish" element={<Spanish />} />
+        <Route path="/italian" element={<Italian />} />
+        <Route path="/german" element={<German />} />
+        <Route path="/slovak" element={<Slovak />} />
+        <Route path="/ukrainian" element={<Ukrainian />} />
       </Routes>
 
       <Footer />

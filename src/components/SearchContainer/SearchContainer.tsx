@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "../Button/Button";
+import Button from "../ui/Button/Button";
 import "./SearchContainer.module.css";
 
 interface SearchComponentProps {
