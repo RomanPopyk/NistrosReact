@@ -40,36 +40,6 @@ export default function Home() {
           >
             🇮🇹 Italiano
           </button>
-          <button
-            className="language-button"
-            onClick={() => navigate("/french-test")}
-          >
-            Test swipe function
-          </button>
-          <button
-            className="language-button"
-            onClick={() => navigate("/french-swipe-works")}
-          >
-            Swipe works, but need to grab for longer
-          </button>
-          <button
-            className="language-button"
-            onClick={() => navigate("/smooth-swipe-edit")}
-          >
-            Smooth
-          </button>
-          <button
-            className="language-button"
-            onClick={() => navigate("/swipe-bottom")}
-          >
-            Bottom
-          </button>
-          <button
-            className="language-button"
-            onClick={() => navigate("/french-modular-path")}
-          >
-            Modular
-          </button>
         </div>
       </main>
     </>

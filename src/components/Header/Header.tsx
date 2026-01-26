@@ -9,7 +9,7 @@ function Header() {
       <div className="home-icon-container">
         <button onClick={() => navigate("/")} className="home-link">
           <img
-            src="./public/favicon500x500.jpeg"
+            src="./favicon500x500.jpeg"
             alt="Home_Icon"
             className="home-icon"
           />
