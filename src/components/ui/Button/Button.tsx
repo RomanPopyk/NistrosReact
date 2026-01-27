@@ -8,6 +8,7 @@ interface ButtonProps {
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
   children: React.ReactNode;
+  style?: React.CSSProperties;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -18,6 +19,7 @@ const Button: React.FC<ButtonProps> = ({
   type = "button",
   disabled = false,
   children,
+  style,
 }) => {
   return (
     <button
@@ -27,6 +29,7 @@ const Button: React.FC<ButtonProps> = ({
       aria-label={ariaLabel}
       type={type}
       disabled={disabled}
+      style={style}
     >
       {children}
     </button>

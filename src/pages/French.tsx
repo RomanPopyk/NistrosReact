@@ -1,4 +1,4 @@
-import IframeContainer from "../components/IframeContainer/IframeContainer";
+import IframeContainer from "../components/TabContainer/TabContainer";
 import SearchContainer from "../components/SearchContainer/SearchContainer";
 
 export default function French() {
