@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Button from "../ui/Button/Button";
-import "./SearchContainer.module.css";
+import styles from "./SearchContainer.module.css";
 
 interface SearchComponentProps {
   onSearch?: (searchTerm: string) => void;

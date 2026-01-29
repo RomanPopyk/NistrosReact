@@ -1,4 +1,4 @@
-import "./Header.module.css";
+import styles from "./Header.module.css";
 
 import { useNavigate } from "react-router-dom";
 

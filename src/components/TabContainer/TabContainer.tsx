@@ -1,11 +1,10 @@
-import "./TabContainer.module.css";
-
 import React, { useState, useRef, useEffect } from "react";
 import Button from "../ui/Button/Button";
 import DynamicIframe from "../DynamicIframe/DynamicIframe";
 import ProgressIndicator from "../ProgressIndicator/ProgressIndicator";
+import styles from "./TabContainer.module.css";
 
-interface Tab {
+export interface Tab {
   id: number;
   label: string;
   src: string;
@@ -13,53 +12,16 @@ interface Tab {
   targetSite: string;
 }
 
-const tabs: Tab[] = [
-  {
-    id: 0,
-    label: "📚 EN Wiktionary",
-    src: "https://en.wiktionary.org/wiki",
-    title: "English Wiktionary",
-    targetSite: "en-wiktionary",
-  },
-  {
-    id: 1,
-    label: "📖 FR Wiktionary",
-    src: "https://fr.wiktionary.org/wiki",
-    title: "French Wiktionary",
-    targetSite: "fr-wiktionary",
-  },
-  {
-    id: 2,
-    label: "🔤 Dict.com",
-    src: "https://dict.com/%D1%84%D1%80%D0%B0%D0%BD%D1%86%D1%83%D0%B7%D1%8C%D0%BA%D0%BE-%D1%83%D0%BA%D1%80%D0%B0%D1%96%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D0%B8",
-    title: "Dict.com",
-    targetSite: "dict-fr-ua",
-  },
-  {
-    id: 3,
-    label: "🌱 Etymonline",
-    src: "https://www.etymonline.com",
-    title: "Etymology Online",
-    targetSite: "etymonline",
-  },
-  {
-    id: 4,
-    label: "🌐 FR Wikipedia",
-    src: "https://fr.wikipedia.org/wiki",
-    title: "French Wikipedia",
-    targetSite: "fr-wikipedia",
-  },
-  {
-    id: 5,
-    label: "Conjugation",
-    src: "https://www.conjugation-fr.com/index.html",
-    title: "Conjugation",
-    targetSite: "conjugation-fr",
-  },
-];
+interface TabContainerProps {
+  tabs: Tab[];
+  defaultActiveTab?: number;
+}
 
-const TabContainer: React.FC = () => {
-  const [activeTab, setActiveTab] = useState(0);
+const TabContainer: React.FC<TabContainerProps> = ({
+  tabs = [],
+  defaultActiveTab = 0,
+}) => {
+  const [activeTab, setActiveTab] = useState(defaultActiveTab);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -107,47 +69,18 @@ const TabContainer: React.FC = () => {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [activeTab]);
+  }, [activeTab, tabs.length]);
 
   return (
-    <section
-      style={{
-        width: "100%",
-        maxWidth: "1200px",
-        margin: "0 auto",
-        fontFamily: "Arial, sans-serif",
-      }}
-    >
+    <section className={styles.container}>
       {/* Tab Header */}
-      <div
-        style={{
-          display: "flex",
-          gap: "8px",
-          padding: "16px",
-          backgroundColor: "#f5f5f5",
-          borderBottom: "2px solid #ddd",
-          overflowX: "auto",
-          flexWrap: "wrap",
-        }}
-      >
+      <div className={styles.tabHeader}>
         {tabs.map((tab) => (
           <Button
             key={tab.id}
             onClick={() => handleTabClick(tab.id)}
-            className={activeTab === tab.id ? "active" : ""}
+            isActive={activeTab === tab.id}
             ariaLabel={tab.label}
-            style={{
-              padding: "10px 16px",
-              border: "none",
-              backgroundColor: activeTab === tab.id ? "#007bff" : "#fff",
-              color: activeTab === tab.id ? "#fff" : "#333",
-              cursor: "pointer",
-              borderRadius: "4px",
-              fontSize: "14px",
-              fontWeight: activeTab === tab.id ? "bold" : "normal",
-              transition: "all 0.3s ease",
-              whiteSpace: "nowrap",
-            }}
           >
             {tab.label}
           </Button>
@@ -156,12 +89,7 @@ const TabContainer: React.FC = () => {
 
       {/* Swipe Container */}
       <div
-        style={{
-          position: "relative",
-          width: "100%",
-          height: "600px",
-          overflow: "hidden",
-        }}
+        className={styles.swipeContainer}
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
@@ -169,22 +97,17 @@ const TabContainer: React.FC = () => {
         {/* Swipe Wrapper */}
         <div
           ref={wrapperRef}
+          className={styles.swipeWrapper}
           style={{
-            display: "flex",
             width: `${tabs.length * 100}%`,
-            height: "100%",
             transform: `translateX(-${(activeTab * 100) / tabs.length}%)`,
-            transition: "transform 0.3s ease",
           }}
         >
           {tabs.map((tab) => (
             <div
               key={tab.id}
-              style={{
-                width: `${100 / tabs.length}%`,
-                height: "100%",
-                flexShrink: 0,
-              }}
+              className={styles.tabPanel}
+              style={{ width: `${100 / tabs.length}%` }}
             >
               <DynamicIframe
                 src={tab.src}
@@ -196,16 +119,7 @@ const TabContainer: React.FC = () => {
         </div>
 
         {/* Swipe Overlay (for visual feedback) */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            pointerEvents: "none",
-          }}
-        />
+        <div className={styles.swipeOverlay} />
       </div>
 
       {/* Progress Indicator */}

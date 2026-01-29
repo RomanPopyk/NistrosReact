@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "./DynamicIframe.module.css";
 
 interface DynamicIframeProps {
   src: string;
@@ -18,32 +19,14 @@ const DynamicIframe: React.FC<DynamicIframeProps> = ({
   };
 
   return (
-    <div style={{ position: "relative", width: "100%", height: "100%" }}>
-      {isLoading && (
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            fontSize: "16px",
-            color: "#666",
-          }}
-        >
-          Loading...
-        </div>
-      )}
+    <div className={styles.container}>
+      {isLoading && <div className={styles.loadingOverlay}>Loading...</div>}
       <iframe
         src={src}
         title={title}
         data-target-site={targetSite}
         onLoad={handleLoad}
-        style={{
-          width: "100%",
-          height: "100%",
-          border: "none",
-          display: isLoading ? "none" : "block",
-        }}
+        className={`${styles.iframe} ${isLoading ? styles.loading : styles.loaded}`}
       />
     </div>
   );

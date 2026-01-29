@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./Button.module.css";
 
 interface ButtonProps {
   id?: string;
@@ -8,7 +9,7 @@ interface ButtonProps {
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
   children: React.ReactNode;
-  style?: React.CSSProperties;
+  isActive?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -19,17 +20,24 @@ const Button: React.FC<ButtonProps> = ({
   type = "button",
   disabled = false,
   children,
-  style,
+  isActive = false,
 }) => {
+  const buttonClasses = [
+    styles.button,
+    isActive ? styles.active : "",
+    className || "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
     <button
       id={id}
-      className={className}
+      className={buttonClasses}
       onClick={onClick}
       aria-label={ariaLabel}
       type={type}
       disabled={disabled}
-      style={style}
     >
       {children}
     </button>
