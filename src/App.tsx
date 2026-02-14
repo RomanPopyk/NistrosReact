@@ -7,10 +7,10 @@ import Italian from "./pages/Italian";
 import Slovak from "./pages/Slovak";
 import German from "./pages/German";
 import Spanish from "./pages/Spanish";
+import Ukrainian from "./pages/Ukrainian";
 
 import Header from "./components/layout/Header/Header";
 import Footer from "./components/layout/Footer/Footer";
-import Ukrainian from "./pages/Ukrainian";
 
 export default function App() {
   return (
