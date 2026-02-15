@@ -1,3 +1,4 @@
+import "../App.css";
 import { useNavigate } from "react-router-dom";
 
 export default function Home() {
@@ -6,10 +7,10 @@ export default function Home() {
   return (
     <>
       <main>
-        <p id="description-homepage">
+        <p className="descriptionHomepage">
           This is a dictionary app. Please select a language to learn
         </p>
-        <div className="language-selection-container">
+        <div className="languageSelectionContainer">
           <button
             className="language-button"
             onClick={() => navigate("/english")}

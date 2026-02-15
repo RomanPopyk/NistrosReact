@@ -1,6 +1,65 @@
-header {
-  padding: 18px 25px;
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #03ecf8;
+  padding: 15px 25px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  user-select: none;
 }
+
+.headerTitleContainer {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  flex-grow: 1;
+  background-color: #03ecf8;
+  border-radius: 10px;
+  padding: 10px 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: radial-gradient(circle, #007bff 10%, #03ecf8 100%);
+}
+
+.title:hover {
+  background: radial-gradient(circle, #007bff 10%, #03ecf8 98%);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  cursor: default;
+}
+
+/* Style for favicon */
+link[rel="icon"] {
+  width: 1px;
+  height: 32px;
+  border-radius: 80%;
+}
+
+.home-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home-link {
+  font-size: 0;
+}
+
+.home-icon-container:hover {
+  transform: scale(1.03);
+}
+.home-icon,
+.settings-icon,
+.more-resources-icon {
+  width: 43px;
+  height: 43px;
+  transition: transform 0.3s ease;
+}
+
 @media (max-width: 768px) {
   header {
     padding: 13px 15px;

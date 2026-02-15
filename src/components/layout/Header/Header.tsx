@@ -6,17 +6,17 @@ function Header() {
   const navigate = useNavigate();
   return (
     <header>
-      <div className="home-icon-container">
-        <button onClick={() => navigate("/")} className="home-link">
+      <div className={styles.homeIconContainer}>
+        <button onClick={() => navigate("/")} className={styles.homeLink}>
           <img
             src="./favicon500x500.jpeg"
             alt="Home_Icon"
-            className="home-icon"
+            className={styles.homeIcon}
           />
         </button>
       </div>
-      <div className="header-title-container">
-        <h1 className="title">Welcome to Nistros</h1>
+      <div className={styles.headerTitleContainer}>
+        <h1 className={styles.title}>Welcome to Nistros</h1>
       </div>
     </header>
   );

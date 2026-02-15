@@ -42,7 +42,7 @@ const frenchTabs: Tab[] = [
   },
 ];
 
-const FrenchPage: React.FC = () => {
+export const FrenchPage: React.FC = () => {
   return (
     <div>
       <h1>French Learning Resources</h1>
@@ -56,7 +56,7 @@ export default function French() {
     <>
       <main>
         <SearchContainer />
-        <TabContainer />
+        <TabContainer tabs={frenchTabs} defaultActiveTab={0} />
       </main>
     </>
   );
