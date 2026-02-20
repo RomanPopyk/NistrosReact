@@ -26,13 +26,13 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }) => {
   };
 
   return (
-    <section className="search-container">
-      <div className="search-input-container">
-        <span className="search-icon">🔍</span>
+    <section className={styles.searchContainer}>
+      <div className={styles.searchInputContainer}>
+        <span className={styles.searchIcon}>🔍</span>
         <input
           type="text"
           id="search-input"
-          className="search-field"
+          className={styles.searchField}
           placeholder="Enter a word"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
@@ -40,7 +40,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }) => {
         />
         <Button
           id="clear-button"
-          className="clear-button"
+          className={styles.clearButton}
           onClick={handleClear}
           ariaLabel="Clear input"
         >
@@ -48,7 +48,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }) => {
         </Button>
         <Button
           id="search-button"
-          className="update-button"
+          className={styles.searchButton}
           onClick={handleSearch}
         >
           Search

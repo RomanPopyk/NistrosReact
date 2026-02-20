@@ -40,21 +40,21 @@ link[rel="icon"] {
   border-radius: 80%;
 }
 
-.home-icon-container {
+.homeIconContainer {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.home-link {
+.homeLink {
   font-size: 0;
 }
 
-.home-icon-container:hover {
+.homeIconContainer:hover {
   transform: scale(1.03);
 }
-.home-icon,
-.settings-icon,
-.more-resources-icon {
+.homeIcon,
+.settingsIcon,
+.moreResourcesIcon {
   width: 43px;
   height: 43px;
   transition: transform 0.3s ease;

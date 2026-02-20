@@ -72,7 +72,7 @@ const TabContainer: React.FC<TabContainerProps> = ({
   }, [activeTab, tabs.length]);
 
   return (
-    <section className={styles.container}>
+    <section className={styles.tabContainer}>
       {/* Tab Header */}
       <div className={styles.tabHeader}>
         {tabs.map((tab) => (
